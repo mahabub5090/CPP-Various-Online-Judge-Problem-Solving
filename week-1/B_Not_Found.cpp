@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
 
-    // problem e bola hoyece a theke z obdhi kichu kichu char thakbe,,jegulor maje theke jeta missing ache ota khujte hobe,,,kono ta missing thakle last sequence  ter por er char char print korte hobe and break,,z er ageaa obdhi emon hobe.jodi f thekeo word suru hoy tao ans a hobe,coz sequence all time a thekei suru hobe..but eta nessesary noy j z e ses hobe,,!
+    //(6/7/8) problem e bola hoyece a theke z obdhi kichu kichu char thakbe,,jegulor maje theke jeta missing ache ota khujte hobe,,,kono ta missing thakle last sequence  ter por er char char print korte hobe and break,,z er ageaa obdhi emon hobe.jodi f thekeo word suru hoy tao ans a hobe,coz sequence all time a thekei suru hobe..but eta nessesary noy j z e ses hobe,,!
 
     string s;
     cin >> s;

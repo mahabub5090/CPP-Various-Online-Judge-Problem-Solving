@@ -9,25 +9,25 @@ int main()
     {
         int sen;
         cin >> sen;
-        queue<string> a, b, c;
+        vector<string> a, b, c;
 
         for (int i = 0; i < sen; i++)
         {
             string wrd;
             cin >> wrd;
-            a.push(wrd);
+            a.push_back(wrd);
         }
         for (int i = 0; i < sen; i++)
         {
             string wrd;
             cin >> wrd;
-            b.push(wrd);
+            b.push_back(wrd);
         }
         for (int i = 0; i < sen; i++)
         {
             string wrd;
             cin >> wrd;
-            c.push(wrd);
+            c.push_back(wrd);
         }
 
 
