@@ -43,7 +43,7 @@ int main()
 
 ////////////////////////////////////////////////////////////
 /*
-@ problem Link:
+@ problem Link: https://codeforces.com/problemset/problem/1722/C
 @ Problem Statement:
 
   C. Word Game
