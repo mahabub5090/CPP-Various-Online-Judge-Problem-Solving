@@ -9,18 +9,17 @@ int main()
     int n;
     cin >> n;
     int arr[n];
-    int sum = 0;
+    int ans = 0;
     for (int i = 0; i < n; i++)
     {
       cin >> arr[i];
-      if (arr[i] > i + 1)
-      {
-        sum += arr[i] - i;
-        i=arr[i];
+      if(arr[i]>i+1){
+      ans=max(ans,arr[i]-(i+1));
       }
     }
-    cout << sum << endl;
+    cout<<ans<<endl;
   }
+
   return 0;
 }
 
