@@ -9,46 +9,37 @@ int main()
         int n;
         cin >> n;
         string s;
-        // if (n > 5)
-        // {
-        //     cout << "NO\n";
-        //     continue;
-        // }
         cin >> s;
-        // bool fg = false;
-        int nm[5] = {0};
-        int j = 0;
+        map<char, int> mp;
         int cnt = 'T' + 'i' + 'm' + 'u' + 'r';
         int cnt2 = 0;
-
+        // int ok = 0;
         for (int i = 0; i < n; i++)
         {
             cnt2 += s[i];
-            if (s[i] == 'T' ||s[i]=='i' ||s[i]== 'm' || s[i]=='u' || s[i]=='r')
+
+            if (s[i] == 'T' || s[i] == 'i' || s[i] == 'm' || s[i] == 'u' || s[i] == 'r')
             {
-                if(j<5){
-                    nm[j]++;
-                    j++;
-                }
-               
+                mp[s[i]]++;
+                // ok++;
             }
         }
+        // cout << ok << " " << mp.size();
+        int ok = mp.size();
 
-        bool fg = false;
-        if (cnt == cnt2)
+        if (ok == 5)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                if (nm[i] == 0)
-                {
-                    fg = true;
-                }
-            }
-            fg ? cout << "NO\n" : cout << "YES\n";
+            if (cnt2 == cnt)
+                cout << "YES";
+            else
+                cout << "NO";
         }
         else
-            cout << "NO\n";
-        // cout << endl;
+        {
+            cout << "NO";
+        }
+
+        cout << endl;
     }
     return 0;
 }
@@ -124,6 +115,5 @@ NO
 NO
 NO
 NO
-
 
 */

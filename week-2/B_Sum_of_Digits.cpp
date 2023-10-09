@@ -2,16 +2,32 @@
 using namespace std;
 int main()
 {
-    string s;
+    string s, scp;
     cin >> s;
+    int ans = 0;
     long long int cnt = 0;
-    for (long long int i = 0; i < s.size(); i++)
+
+    for (int i = 0; i < s.size(); i++)
     {
-        if ((s[i]) == '0' - 0)
-            continue;
-        cnt++;
+        cnt += (s[i] - '0');
     }
-    cout << cnt;
+    // cout << cnt;
+    if (cnt >= 10 || s.size() >= 2)
+        ans++;
+    while (cnt > 9)
+    {
+        ans++;
+        scp = to_string(cnt);
+        // cout<<scp;
+        cnt = 0;
+        for (int i = 0; i < scp.size(); i++)
+        {
+            cnt += (scp[i] - '0');
+            // cout<<cnt<<endl;
+        }
+    }
+    cout << ans;
+
     return 0;
 }
 

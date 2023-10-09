@@ -5,32 +5,54 @@ int main()
     int n;
     cin >> n;
     int cnt = 0;
-    for (int i = 0; i < n; i++)
+
+    vector<int> vc;
+
+    for (int i = 2; i <= n; i++)
     {
         bool fg = false;
-        for (int j = 3; j < n; j++)
+        for (int j = 2; j <= n; j++)
         {
             if (i == j)
-            {
                 continue;
-            }
-            if (i % 2 != 0 && i / j != 0)
+            if (i % j == 0)
             {
                 fg = true;
             }
         }
-        if (fg)
-            cnt++;
+        if (!fg)
+        {
+            vc.push_back(i);
+        }
     }
-    if (n <= 10)
+
+    // for (int i : vc)
+    // {
+    //     cout << i << " ";
+    // }
+
+    for (int i = 1; i <= n; i++)
     {
-        if (n <= 1)
-            cout << 0;
-        else
-            cout << cnt - 1;
+        int cnt2 = 0;
+        for (int j = 0; j < vc.size(); j++)
+        {
+            if (i == vc[j])
+                continue;
+            if (i % vc[j] == 0)
+            {
+                cnt2++;
+            }
+        }
+        if (cnt2 == 2)
+        {
+            // cout << i << " " << cnt2 << endl;
+            
+            cnt++;
+        }
     }
-    else
-        cout << cnt;
+
+    cout << cnt << endl;
+
     return 0;
 }
 

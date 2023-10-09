@@ -6,22 +6,19 @@ int main()
     ll int n, s;
     cin >> n >> s;
     ll int cnt = 0;
+
     for (ll int i = 0; i <= n; i++)
     {
         for (ll int j = 0; j <= n; j++)
         {
-            for (ll int k = 0; k <= n; k++)
+            if (i + j >= s - n && s >= i + j)
             {
-                if (i + j + k == s)
-                    cnt++;
-                if (i + j + k > s)
-                    break;
+                cnt++;
             }
-            if (i + j > s)
-                break;
         }
     }
-    cout << cnt;
+
+    cout << cnt << endl;
     return 0;
 }
 

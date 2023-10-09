@@ -2,12 +2,25 @@
 using namespace std;
 int main()
 {
+    string s;
     int n;
     cin >> n;
-    if (n <= 1987)
-        cout << 2013;
+    n++;
+    s = to_string(n);
+
+    if (s[0] != s[1] && s[1] != s[2] && s[2] != s[3] && s[0] != s[3] && s[1] != s[3] && s[0] != s[2])
+    {
+        cout << n << endl;
+    }
     else
-        cout << n + 1;
+    {
+        while (s[0] == s[1] || s[1] == s[2] || s[2] == s[3] || s[0] == s[3] || s[1] == s[3] || s[0] == s[2])
+        {
+            n++;
+            s = to_string(n);
+        }
+        cout << n << endl;
+    }
     return 0;
 }
 

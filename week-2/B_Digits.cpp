@@ -1,5 +1,22 @@
-
-
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  long long int n, b;
+  cin >> n >> b;
+  long long int cnt = 0;
+  for (long long int i = 0; i <= n; i++)
+  {
+    if (pow(b, i) > n)
+    {
+      break;
+      // cout << pow(b, i) << endl;
+    }
+    cnt++;
+  }
+  cout << cnt;
+  return 0;
+}
 
 ////////////////////////////////////////////////////////////
 /*

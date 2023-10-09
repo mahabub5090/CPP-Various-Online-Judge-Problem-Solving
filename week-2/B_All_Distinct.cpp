@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+const int N = 1e5;
 int main()
 {
     int t;
@@ -9,8 +10,8 @@ int main()
         int n;
         cin >> n;
         int arr[n];
-        map<int, int> mp;
         set<int> st;
+        map<int, int> mp;
         for (int i = 0; i < n; i++)
         {
             cin >> arr[i];
@@ -18,17 +19,12 @@ int main()
             mp[arr[i]]++;
         }
         int cnt = 0;
-
-        for (int i = 0; i < n; i++)
+        for (auto i : mp)
         {
-            if (mp[arr[i]] > 0 && mp[arr[i]] % 2 != 0)
-            {
-                cnt++;
-                mp[arr[i]] = 0;
-            }
+            if (i.second > 1)
+                cnt += (i.second - 1);
         }
-        int ans = cnt % 2;
-        cout << st.size() - ans << endl;
+        cout << st.size() - cnt % 2 << endl;
     }
     return 0;
 }
