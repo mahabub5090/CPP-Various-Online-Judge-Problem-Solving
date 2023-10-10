@@ -2,25 +2,45 @@
 using namespace std;
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    vector<int> ans;
+    vector<string> vc;
+    int n, ss;
+    cin >> n >> ss;
+    for (int i = 0; i < n; i++)
     {
-        int n, s;
-        cin >> n >> s;
-        // int cost[n] = {0};
-        string str[n];
-        int arr[n];
-        for (int i = 0; i < n; i++)
-        {
-            cin >> str[i];
-            str[arr[i]];
-        }
-        sort(arr, arr + n);
-        cout << arr[1] - arr[0] << endl;
+      string s;
+      cin >> s;
+      vc.push_back(s);
     }
-    return 0;
+    for (int i = 0; i < vc.size(); i++)
+    {
+      string s = vc[i];
+      for (int j = 0; j < vc.size(); j++)
+      {
+        if (i == j)
+          continue;
+        string s2 = vc[j];
+        int cnt = 0;
+        for (int k = 0; k < s.size(); k++)
+        {
+          if (s[k] == s2[k])
+            continue;
+          else
+            cnt += abs(s[k] - s2[k]);
+        }
+        ans.push_back(cnt);
+      }
+    }
+    sort(ans.begin(), ans.end());
+    cout << ans[0] << endl;
+  }
+  return 0;
 }
+
 
 ////////////////////////////////////////////////////////////
 /*

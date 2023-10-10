@@ -1,4 +1,87 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define cn(x) cin >> x
+#define endl '\n'
+#define foi(i, s, e) for (int i = s; i < e; i++)
 
+void solve()
+{
+  vector<pair<string, string>> vc;
+
+  string s;
+  int n;
+  cin >> s >> n;
+
+  int rem = n % 60;
+  int hrs = n / 60;
+
+  int totalHrs = stoi(s.substr(0, 2));
+  int totalMin = stoi(s.substr(3, 5));
+
+  int h = totalHrs, m = totalMin;
+
+  // cout << hrs << " " << st << "ok";
+
+  while (true)
+  {
+
+    totalHrs += hrs;
+    totalMin += rem;
+
+    if (totalMin >= 60)
+    {
+      totalHrs++;
+      totalMin -= 60;
+    }
+    if (totalHrs >= 24)
+    {
+      totalHrs -= 24;
+    }
+
+    string a, b;
+
+    if (totalHrs < 10)
+      a = "0" + to_string(totalHrs);
+    else
+      a = to_string(totalHrs);
+
+    if (totalMin < 10)
+      b = "0" + to_string(totalMin);
+    else
+      b = to_string(totalMin);
+
+    vc.push_back({a, b});
+
+      if (totalHrs == h && totalMin == m)
+    {
+      break;
+    }
+  }
+
+  int cnt = 0;
+  for (auto i : vc)
+  {
+    string s = i.first, s2 = i.second;
+    // cout << s << " " << s2 << endl;
+    reverse(s2.begin(), s2.end());
+    if (s == s2)
+      cnt++;
+  }
+
+  cout << cnt << endl;
+}
+
+int main()
+{
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    solve();
+  }
+  return 0;
+}
 
 ////////////////////////////////////////////////////////////
 /*
@@ -64,7 +147,5 @@ outputCopy
 1
 Note
 The first test case is explained in the statement.
-
-
 
 */

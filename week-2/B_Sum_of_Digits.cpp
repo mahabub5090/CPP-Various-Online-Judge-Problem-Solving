@@ -14,6 +14,7 @@ int main()
     // cout << cnt;
     if (cnt >= 10 || s.size() >= 2)
         ans++;
+        
     while (cnt > 9)
     {
         ans++;
