@@ -10,13 +10,9 @@ void solve()
 {
     int n;
     cin >> n;
-    string s;
+    string s,s2;
     cin >> s;
-    queue<char> myQ;
-    for (char c : s)
-    {
-        myQ.push(c);
-    }
+ 
 }
 int main()
 {

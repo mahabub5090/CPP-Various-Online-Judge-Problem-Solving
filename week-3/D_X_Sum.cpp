@@ -3,8 +3,8 @@ using namespace std;
 #define ll long long
 #define cn(x) cin >> x
 #define foi(i, s, e) for (int i = s; i < e; i++)
-#define endll cout << '\n'
-// #define vcmax(a) sort(a.begin(), a.end()) && reverse(a.begin(), a.end())
+#define endl '\n'
+#define Endl '\n'
 
 void solve()
 {
@@ -18,82 +18,56 @@ void solve()
             cin >> arr[i][j];
         }
     }
-    vector<pair<int, int>> pt;
-
+    vector<int> ans;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            pt.push_back({i, j});
-        }
-    }
+            int sum = 0, pi = i, pj = j;
+            sum += arr[pi][pj];
 
-    if (pt.empty())
-    {
-        cout << 0 << endl;
-    }
-    else
-    {
-        vector<int> ans;
-        for (auto path : pt)
-        {
-
-            int sum = 0;
-
-            int i = path.first;
-            int j = path.second;
-
-            sum += arr[i][j];
-
-            int pi = i, pj = j;
-
-            while (pi > 0 && pj > 0)
-            {
-                pi--;
-                pj--;
-
-                if (pi != pj)
-                    continue;
-                sum += arr[pi][pj];
-            }
-
-            pi = i;
-            pj = j;
             while (pi < n - 1 && pj < m - 1)
             {
                 pi++;
                 pj++;
-
-                if (pi != pj)
-                    continue;
+                // if (pi != pj)
+                //     continue;
                 sum += arr[pi][pj];
             }
-
-            pi = i;
-            pj = j;
-            while (pi < n - 1 && pj > 0)
+            pi = i, pj = j;
+            while (pi > 0 && pj > 0)
             {
-                pi++;
+                pi--;
                 pj--;
+                // if (pi != pj)
+                //     continue;
                 sum += arr[pi][pj];
             }
-
-            pi = i;
-            pj = j;
+            pi = i, pj = j;
             while (pi > 0 && pj < m - 1)
             {
                 pi--;
                 pj++;
                 sum += arr[pi][pj];
             }
-
+            pi = i, pj = j;
+            while (pi < n - 1 && pj > 0)
+            {
+                pi++;
+                pj--;
+                sum += arr[pi][pj];
+            }
             ans.push_back(sum);
         }
-
-        sort(ans.begin(), ans.end());
-        reverse(ans.begin(), ans.end());
-        cout << ans[0] << endl;
     }
+    if (ans.empty())
+    {
+        cout << 0 << Endl;
+        return;
+    }
+    sort(ans.begin(), ans.end());
+    reverse(ans.begin(), ans.end());
+    cout << ans[0]<<endl;
 }
 int main()
 {
@@ -107,7 +81,6 @@ int main()
     return 0;
 }
 
-
 ////////////////////////////////////////////////////////////
 /*
 @ problem Link:
@@ -117,3 +90,4 @@ OR,
   https://codeforces.com/problemset/problem/1676/D
 
 */
+
