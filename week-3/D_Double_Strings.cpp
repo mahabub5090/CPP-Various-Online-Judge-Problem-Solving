@@ -11,34 +11,43 @@ void solve()
     int n;
     cin >> n;
     vector<string> vc(n);
+    map<string, int> mp;
     for (int i = 0; i < n; i++)
     {
         cin >> vc[i];
+        mp[vc[i]]++;
     }
-    vector<string> plus;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            string str = vc[i] + vc[j];
-            plus.push_back(str);
-        }
-    }
+
     vector<char> c;
+
     for (string cmp : vc)
     {
-        int sub = 0;
-        for (int i = 0; i < plus.size(); i++)
+        int sum = 0;
+        int range = cmp.size();
+        bool fg = false;
+        for (int i = 0, j = 1; i < range; i++, j++)
         {
-            if (cmp == plus[i])
-                sub++;
+            sum = 0;
+            string a, b;
+            a = cmp.substr(0, j);
+            b = cmp.substr(j, range);
+            // cout << a << " " << b << Endl;
+            if (mp[a] > 0)
+                sum++;
+            if (mp[b] > 0)
+                sum++;
+            if (fg == true)
+                continue;
+            if (sum == 2)
+            {
+                c.push_back('1');
+                fg = true;
+            }
         }
-
-        if (sub >= 1)
-            c.push_back('1');
-        else
+        if (fg != true)
             c.push_back('0');
     }
+
     for (char i : c)
     {
         cout << i;
@@ -49,14 +58,13 @@ int main()
 {
     int t;
     cin >> t;
-    // t = 1;
+    // int t = 1;
     while (t--)
     {
         solve();
     }
     return 0;
 }
-
 
 ////////////////////////////////////////////////////////////
 /*
