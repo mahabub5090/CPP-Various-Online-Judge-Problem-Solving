@@ -41,3 +41,14 @@ int main()
     }
     return 0;
 }
+
+
+////////////////////////////////////////////////////////////
+/*
+@ problem Link:
+OR,
+@ Problem Statement:
+
+  https://codeforces.com/problemset/problem/1759/A
+
+*/
