@@ -29,7 +29,7 @@ void solve()
             ans.push_back(c);
         }
     }
-    string cmp ;
+    string cmp;
     for (auto c : ans)
     {
         cmp += c;
@@ -48,5 +48,4 @@ int main()
     {
         solve();
     }
-    return 0;
-}
+    return 0;}
