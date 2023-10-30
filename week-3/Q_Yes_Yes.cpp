@@ -8,27 +8,43 @@ using namespace std;
 
 void solve()
 {
-    string s;
+    string s, mainStr;
     cin >> s;
-    map<char, int> mp;
-    if (s == "YES" || s == "Yess" || s == "se" || s[0] == 's' && s[1] == 'e')
+    int sz = s.size();
+    for (int i = 0; i < sz; i++)
+    {
+        mainStr += "Yes";
+    }
+
+    // if (s == "YES" || s == "Yess" || s == "se")
+    // {
+    //     cout << "NO\n";
+    //     return;
+    // }
+
+    // for (int i = 0; i < s.size() - 1; i++)
+    // {
+    //     if (s[i] == 's' && s[i + 1] == 'e')
+    //     {
+    //         cout << "NO\n";
+    //         return;
+    //     }
+    // }
+
+    string r1 = "YES", r2 = "Yess", r3 = "se";
+
+    if (s.find(r1) != s.npos || s.find(r2) != s.npos || s.find(r3) != s.npos)
     {
         cout << "NO\n";
         return;
     }
-    for (int i = 0; i < s.size(); i++)
+
+    if (mainStr.find(s) != mainStr.npos)
     {
-        if (s[i] == 'Y' || s[i] == 'e' || s[i] == 'y' || s[i] == 's')
-        {
-            continue;
-        }
-        else
-        {
-            cout << "NO\n";
-            return;
-        }
+        cout << "YES\n";
+        return;
     }
-    cout << "YES\n";
+    cout << "NO\n";
 }
 int main()
 {
@@ -37,6 +53,17 @@ int main()
     // t = 1;
     while (t--)
     {
+        // string s = "YesYes", cpy = "sY";
+
+        // if (s.find(cpy) != s.npos)
+        // {
+        //     cout << "yes\n";
+        // }
+        // else
+        // {
+        //     cout << "NO\n";
+        // }
+
         solve();
     }
     return 0;

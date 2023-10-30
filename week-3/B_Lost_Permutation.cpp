@@ -8,30 +8,29 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n, sum;
+    cin >> n >> sum;
     int arr[n];
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-
+    vector<int> miss;
     sort(arr, arr + n);
-    if (arr[0] % 2 == 1)
+    int curr = 0;
+    for (int i = 0; i < n - 1; i++)
     {
-        cout << "YES\n";
-        return;
+        if (arr[i] + 1 == arr[i + 1])
+            continue;
+        curr = arr[i] + 1;
+        miss.push_back(curr);
     }
-    for (int i = 0; i < n; i++)
+
+    for (auto val : miss)
     {
-        if (arr[i] % 2 != 0)
-        {
-            cout << "NO\n";
-            return;
-        }
+        cout << val << " ";
     }
-    cout << "YES\n";
-    return;
+    cout << endl;
 }
 int main()
 {
@@ -45,14 +44,3 @@ int main()
     }
     return 0;
 }
-
-
-////////////////////////////////////////////////////////////
-/*
-@ problem Link:
-OR,
-@ Problem Statement:
-
-  https://codeforces.com/problemset/problem/1833/C
-
-*/

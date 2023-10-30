@@ -10,28 +10,24 @@ void solve()
 {
     int n;
     cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
+    string s;
+    cin >> s;
+    int dlt = 0;
+    for (int i = 0; i < s.size() - 2; i++)
     {
-        cin >> arr[i];
+        (s[i] == s[i + 2]) ? dlt++ : dlt;
     }
+    cout << (n - 1) - dlt << Endl;
 
-    sort(arr, arr + n);
-    if (arr[0] % 2 == 1)
-    {
-        cout << "YES\n";
-        return;
-    }
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] % 2 != 0)
-        {
-            cout << "NO\n";
-            return;
-        }
-    }
-    cout << "YES\n";
-    return;
+    /*
+    // OR,
+     int ans=0;
+      for (int i = 0; i < s.size() - 2; i++)
+     {
+         (s[i] == s[i + 2]) ? continue : ans++;
+     }
+     cout << ans<< Endl;
+     */
 }
 int main()
 {
@@ -46,13 +42,12 @@ int main()
     return 0;
 }
 
-
 ////////////////////////////////////////////////////////////
 /*
 @ problem Link:
 OR,
 @ Problem Statement:
 
-  https://codeforces.com/problemset/problem/1833/C
+  https://codeforces.com/problemset/problem/1800/D
 
 */
