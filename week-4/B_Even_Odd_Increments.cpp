@@ -22,32 +22,47 @@ using namespace std;
 
 void solve()
 {
-
-    int n;
+    ll n;
     cin >> n;
-    int arr[n];
-    map<int, set<char>> ms;
-    for (int i = 0; i < n; i++)
+    int q;
+    cin >> q;
+    ll arr[n];
+    ll even = 0, odd = 0, sum = 0;
+    for (ll i = 0; i < n; i++)
     {
         cin >> arr[i];
+        sum += arr[i];
+        if (arr[i] % 2 == 0)
+            even++;
+        else
+            odd++;
     }
-    string s;
-    cin >> s;
-    for (int i = 0; i < s.size(); i++)
+    while (q--)
     {
-        set<char> &st = ms[arr[i]]; // & is must,otherwise not worked;
-        st.insert(s[i]);
-        // ms[arr[i]].insert(s[i]); //also worked;
-    }
-    for (auto val : ms)
-    {
-        if (val.second.size() > 1)
+        ll a, b;
+        cin >> a >> b;
+
+        if (a == 0)
         {
-            no;
-            return;
+            sum += (even * b);
+            if (b % 2 != 0)
+            {
+                odd += even;
+                even = 0;
+            }
         }
+        else
+        {
+            sum += (odd * b);
+            if (b % 2 != 0)
+            {
+                even += odd;
+                odd = 0;
+            }
+        }
+
+        cout << sum << endl;
     }
-    yes;
 }
 /*mdmahabub55*/
 int main()
