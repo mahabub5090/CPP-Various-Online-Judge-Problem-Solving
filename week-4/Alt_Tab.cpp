@@ -4,7 +4,7 @@
 OR,
 @ Problem Statement:
 
-  https://codeforces.com/problemset/problem/1741/B
+  https://www.codechef.com/problems/ALTTAB
 
 */
 /*
@@ -28,37 +28,34 @@ using namespace std;
 #define nl cout << '\n'
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
-//Accepted
+
 void solve()
 {
 
-    int a;
-    cin >> a;
-    if (a == 3)
+    int n;
+    cin >> n;
+    vector<string> vc;
+    while (n--)
     {
-        cout << -1 << endl;
-        return;
-    }
-    if (a % 2 == 0)
-    {
-        for (int i = a; i > 0; i--)
-        {
-            cout << i << " ";
-        }
-        nl;
-        return;
+        string s;
+        cin >> s;
+        vc.pb(s);
     }
 
-    int mid = (a / 2) + 1;
-    for (int i = mid; i <= a; i++)
+    reverse(vc.begin(), vc.end());
+    string out = "";
+    map<string, int> mp;
+    for (int i = 0; i < vc.size(); i++)
     {
-        cout << i << " ";
+        if (mp[vc[i]] == 0)
+        {
+            out += vc[i][vc[i].size() - 2];
+            out += vc[i][vc[i].size() - 1];
+            // out += vc[i].substr(vc[i].size() - 2, 2); //worked;
+        }
+        mp[vc[i]]++;
     }
-    for (int i = 1; i < mid; i++)
-    {
-        cout << i << " ";
-    }
-    nl;
+    cout << out << endl;
 }
 /*mdmahabub55*/
 int main()
@@ -68,7 +65,7 @@ int main()
     cout.tie(NULL);
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     // t = 1;
 
     while (t--)

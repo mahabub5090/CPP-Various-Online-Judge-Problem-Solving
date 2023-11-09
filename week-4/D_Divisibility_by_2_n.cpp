@@ -4,7 +4,7 @@
 OR,
 @ Problem Statement:
 
-  https://codeforces.com/problemset/problem/1741/B
+  https://codeforces.com/problemset/problem/1744/D
 
 */
 /*
@@ -28,37 +28,51 @@ using namespace std;
 #define nl cout << '\n'
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
-//Accepted
+
 void solve()
 {
-
-    int a;
-    cin >> a;
-    if (a == 3)
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
     {
-        cout << -1 << endl;
-        return;
+        cin >> arr[i];
     }
-    if (a % 2 == 0)
+
+    int cnt = 0;
+    for (int i = 0; i < n; i++)
     {
-        for (int i = a; i > 0; i--)
+        while (arr[i] % 2 == 0)
         {
-            cout << i << " ";
+            cnt++;
+            arr[i] /= 2;
         }
-        nl;
-        return;
     }
-
-    int mid = (a / 2) + 1;
-    for (int i = mid; i <= a; i++)
+    vector<int> vc;
+    for (int i = 2; i <= n; i++)
     {
-        cout << i << " ";
+        int cpi = i, ci = 0;
+        while (cpi % 2 == 0)
+        {
+            ci++;
+            cpi /= 2;
+        }
+        if (ci != 0)
+            vc.pb(ci);
     }
-    for (int i = 1; i < mid; i++)
+    sort(vc.rbegin(), vc.rend());
+    int ans = 0;
+    // cout << vc.size() << Endl;
+    // return;
+    for (int i = 0; i < vc.size() && n > cnt; i++)
     {
-        cout << i << " ";
+        cnt += vc[i];
+        ans++;
     }
-    nl;
+    if (cnt < n)
+        cout << -1 << endl;
+    else
+        cout << ans << Endl;
 }
 /*mdmahabub55*/
 int main()

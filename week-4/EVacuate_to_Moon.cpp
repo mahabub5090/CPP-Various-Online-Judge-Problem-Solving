@@ -4,7 +4,7 @@
 OR,
 @ Problem Statement:
 
-  https://codeforces.com/problemset/problem/1741/B
+  https://www.codechef.com/problems/MOONSOON
 
 */
 /*
@@ -28,37 +28,31 @@ using namespace std;
 #define nl cout << '\n'
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
-//Accepted
+
 void solve()
 {
 
-    int a;
-    cin >> a;
-    if (a == 3)
+    ll n, m, h;
+    cin >> n >> m >> h;
+    ll an[n], am[m];
+    for (ll i = 0; i < n; i++)
     {
-        cout << -1 << endl;
-        return;
+        cin >> an[i];
     }
-    if (a % 2 == 0)
+    for (ll i = 0; i < m; i++)
     {
-        for (int i = a; i > 0; i--)
-        {
-            cout << i << " ";
-        }
-        nl;
-        return;
+        cin >> am[i];
     }
-
-    int mid = (a / 2) + 1;
-    for (int i = mid; i <= a; i++)
+    sort(an, an + n);
+    reverse(an, an + n);
+    sort(am, am + m);
+    reverse(am, am + m);
+    ll ans = 0, lp = min(n, m);
+    for (ll i = 0; i < lp; i++)
     {
-        cout << i << " ";
+        ans += min(an[i], am[i] * h);
     }
-    for (int i = 1; i < mid; i++)
-    {
-        cout << i << " ";
-    }
-    nl;
+    cout << ans << Endl;
 }
 /*mdmahabub55*/
 int main()

@@ -4,7 +4,7 @@
 OR,
 @ Problem Statement:
 
-  https://codeforces.com/problemset/problem/1741/B
+  https://codeforces.com/problemset/problem/1744/C
 
 */
 /*
@@ -28,37 +28,56 @@ using namespace std;
 #define nl cout << '\n'
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
-//Accepted
+
 void solve()
 {
-
-    int a;
-    cin >> a;
-    if (a == 3)
+    int n;
+    char c;
+    cin >> n >> c;
+    string s;
+    cin >> s;
+    if (c == 'g')
     {
-        cout << -1 << endl;
+        cout << 0 << endl;
         return;
     }
-    if (a % 2 == 0)
+
+    int suffix[n];
+    if (s[n - 1] == 'g')
     {
-        for (int i = a; i > 0; i--)
+        suffix[n - 1] = n - 1;
+
+        // cout << n - 1 << "-- " << suffix[n - 1] << endl;
+    }
+    else
+        suffix[n - 1] = -1;
+
+    for (int i = n - 2; i >= 0; i--)
+    {
+        if (s[i] == 'g')
+            suffix[i] = i;
+        else
+            suffix[i] = suffix[i + 1];
+    }
+    // for (auto val : suffix)
+    // {
+    //     cout << val << " ";
+    // }
+    // nl;
+    // return;
+    vector<int> vc;
+    for (int i = 0; i < n; i++)
+    {
+        if (s[i] == c)
         {
-            cout << i << " ";
+            if (suffix[i] == -1)
+                vc.push_back((n - i) + suffix[0]);
+            else
+                vc.push_back(suffix[i] - i);
         }
-        nl;
-        return;
     }
-
-    int mid = (a / 2) + 1;
-    for (int i = mid; i <= a; i++)
-    {
-        cout << i << " ";
-    }
-    for (int i = 1; i < mid; i++)
-    {
-        cout << i << " ";
-    }
-    nl;
+    sort(vc.begin(), vc.end(), greater<>());
+    cout << vc[0] << endl;
 }
 /*mdmahabub55*/
 int main()
